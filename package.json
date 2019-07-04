@@ -1,0 +1,35 @@
+{
+  "name": "expressstencilstarter",
+  "version": "0.0.1",
+  "description": "Stencil Component Starter",
+  "main": "resources/assets/components/index.js",
+  "module": "resources/assets/components/index.mjs",
+  "es2015": "resources/assets/components/esm/index.mjs",
+  "es2017": "resources/assets/components/esm/index.mjs",
+  "types": "resources/assets/components/types/index.d.ts",
+  "collection": "resources/assets/components/collection/collection-manifest.json",
+  "collection:main": "resources/assets/components/collection/index.js",
+  "unpkg": "resources/assets/components/expressstencilstarter/expressstencilstarter.js",
+  "files": [
+    "resources/assets/components/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+
+    "dev:server": "ts-node --project tsconfig.server.json server/app.ts"
+
+  },
+  "devDependencies": {
+    "@stencil/core": "^1.0.7"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@types/express": "4.17.0",
+    "express": "4.17.1",
+    "ts-node": "8.3.0"
+  }
+}
