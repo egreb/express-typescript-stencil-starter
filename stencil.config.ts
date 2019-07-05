@@ -6,8 +6,8 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'dist',
-      esmLoaderPath: '../loader',
-      dir: path.join(__dirname, 'resources/assets/components'),
+      esmLoaderPath: path.join(__dirname, 'resources/components/loader'),
+      dir: path.join(__dirname, 'resources/components'),
       empty: true,
     },
     {

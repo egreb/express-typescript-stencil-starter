@@ -2,17 +2,17 @@
   "name": "expressstencilstarter",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
-  "main": "resources/assets/components/index.js",
-  "module": "resources/assets/components/index.mjs",
-  "es2015": "resources/assets/components/esm/index.mjs",
-  "es2017": "resources/assets/components/esm/index.mjs",
-  "types": "resources/assets/components/types/index.d.ts",
-  "collection": "resources/assets/components/collection/collection-manifest.json",
-  "collection:main": "resources/assets/components/collection/index.js",
-  "unpkg": "resources/assets/components/expressstencilstarter/expressstencilstarter.js",
+  "main": "resources/components/index.js",
+  "module": "resources/components/index.mjs",
+  "es2015": "resources/components/esm/index.mjs",
+  "es2017": "resources/components/esm/index.mjs",
+  "types": "resources/components/types/index.d.ts",
+  "collection": "resources/components/collection/collection-manifest.json",
+  "collection:main": "resources/components/collection/index.js",
+  "unpkg": "resources/components/expressstencilstarter/expressstencilstarter.js",
   "files": [
-    "resources/assets/components/",
-    "loader/"
+    "resources/components/",
+    "resources/components/loader/"
   ],
   "scripts": {
     "build": "stencil build --docs",
