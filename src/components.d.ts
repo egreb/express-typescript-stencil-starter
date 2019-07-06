@@ -13,15 +13,7 @@ export namespace Components {
     /**
     * The first name
     */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
+    'count': string;
   }
 }
 
@@ -43,15 +35,7 @@ declare namespace LocalJSX {
     /**
     * The first name
     */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
+    'count'?: string;
   }
 
   interface IntrinsicElements {
