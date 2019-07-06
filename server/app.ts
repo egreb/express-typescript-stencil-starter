@@ -7,7 +7,7 @@ app.use(express.static(path.join(__dirname, '../resources')))
 app.set('views', path.join(__dirname, '../views'))
 
 app.get('/', (_req, res) => {
-  res.sendfile('views/index.html')
+  res.sendFile(path.join(__dirname, '../views', 'index.html'))
 })
 
 app.listen(3000, () => {
