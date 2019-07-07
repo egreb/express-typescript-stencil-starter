@@ -7,7 +7,7 @@ Clone this repo
 
 `yarn build`
 
-`yarn dev:server`
+`yarn server:dev`
 
 Then visit [http://localhost:3000](http://localhost:3000) with your favourite browser.
 
