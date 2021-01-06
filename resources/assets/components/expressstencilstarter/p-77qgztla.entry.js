@@ -1,1 +1,0 @@
-import{r as t,h as r}from"./p-136c5c31.js";class e{constructor(r){t(this,r)}getText(){return(this.first||"")+((t=this.middle)?` ${t}`:"")+((r=this.last)?` ${r}`:"");var t,r}render(){return r("div",null,"Hello, World! I'm ",this.getText())}static get style(){return""}}export{e as my_component};

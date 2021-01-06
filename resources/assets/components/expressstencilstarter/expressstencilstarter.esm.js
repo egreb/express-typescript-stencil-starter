@@ -1,1 +1,0 @@
-import{p as s,b as r}from"./p-136c5c31.js";s().then(s=>r([["p-77qgztla",[[1,"my-component",{first:[1],middle:[1],last:[1]}]]]],{resourcesUrl:s}));

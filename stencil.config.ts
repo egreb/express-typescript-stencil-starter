@@ -1,21 +1,17 @@
 import { Config } from '@stencil/core';
-import path from 'path'
+
+// https://stenciljs.com/docs/config
 
 export const config: Config = {
-  namespace: 'expressstencilstarter',
+  globalStyle: 'src/global/app.css',
+  globalScript: 'src/global/app.ts',
+  taskQueue: 'async',
   outputTargets: [
     {
-      type: 'dist',
-      esmLoaderPath: path.join(__dirname, 'resources/components/loader'),
-      dir: path.join(__dirname, 'resources/components'),
-      empty: true,
-    },
-    {
-      type: 'docs-readme'
-    },
-    {
       type: 'www',
-      serviceWorker: null // disable service workers
-    }
-  ]
+      // comment the following line to disable service workers in production
+      serviceWorker: null,
+      baseUrl: 'https://myapp.local/',
+    },
+  ],
 };
