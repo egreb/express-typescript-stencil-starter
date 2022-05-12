@@ -13,12 +13,12 @@
     "server:build": "tsc --build tsconfig.server.json"
   },
   "devDependencies": {
-    "@stencil/core": "^2.3.0",
+    "@stencil/core": "^2.15.2",
     "@stencil/router": "^1.0.1",
-    "@types/express": "4.17.9",
-    "ts-node": "9.1.1"
+    "@types/express": "^4.17.9",
+    "ts-node": "^9.1.1"
   },
   "dependencies": {
-    "express": "4.17.1"
+    "express": "^4.17.1"
   }
 }
