@@ -14,6 +14,8 @@ export namespace Components {
     }
     interface AppRoot {
     }
+    interface AppUsers {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -40,6 +42,12 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLAppUsersElement extends Components.AppUsers, HTMLStencilElement {
+    }
+    var HTMLAppUsersElement: {
+        prototype: HTMLAppUsersElement;
+        new (): HTMLAppUsersElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -50,6 +58,7 @@ declare global {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "app-users": HTMLAppUsersElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -61,6 +70,8 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface AppUsers {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -71,6 +82,7 @@ declare namespace LocalJSX {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
+        "app-users": AppUsers;
         "my-component": MyComponent;
     }
 }
@@ -81,6 +93,7 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "app-users": LocalJSX.AppUsers & JSXBase.HTMLAttributes<HTMLAppUsersElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

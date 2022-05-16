@@ -4,7 +4,9 @@
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "declaration": false,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "sourceMap": true,
     "lib": [
       "dom",
       "es2017"

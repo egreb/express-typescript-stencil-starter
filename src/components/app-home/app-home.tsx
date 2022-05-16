@@ -10,12 +10,25 @@ export class AppHome {
     return (
       <div class="app-home">
         <p>
-          Welcome to the Stencil App Starter. You can use this starter to build entire apps all with web components using Stencil! Check out our docs on{' '}
-          <a href="https://stenciljs.com">stenciljs.com</a> to get started.
+          Welcome to the Stencil / TypeORM / Express App Starter. Check out:
+          <ul>
+            <li>
+              <a href="https://stenciljs.com">stenciljs.com</a>
+            </li>
+            <li>
+              <a href="https:typeorm.io/">typeorm.io/</a>
+            </li>
+            <li>
+              <a href="https://expressjs.com/fr/">expressjs.com/fr/</a>
+            </li>
+          </ul>
         </p>
 
         <stencil-route-link url="/profile/stencil">
-          <button>Profile page</button>
+          <button>Stencil profile</button>
+        </stencil-route-link>
+        <stencil-route-link url="/users">
+          <button>TypeORM Users</button>
         </stencil-route-link>
       </div>
     );
