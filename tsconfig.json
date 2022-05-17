@@ -4,15 +4,23 @@
     "allowUnreachableCode": false,
     "declaration": false,
     "experimentalDecorators": true,
-    "skipLibCheck": true,
-    "lib": ["dom", "es2015"],
-    "moduleResolution": "node",
-    "module": "esnext",
-    "target": "es2017",
+    "emitDecoratorMetadata": true,
+    "preserveConstEnums": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "lib": ["dom", "es2017"],
+    "target": "es2017",
+    "typeRoots": ["node_modules/@types"],
+    "module": "esnext",
+    "moduleResolution": "node",
     "jsx": "react",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*", "src/utils/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules"]

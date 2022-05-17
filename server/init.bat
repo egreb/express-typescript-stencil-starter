@@ -1,0 +1,1 @@
+typeorm migration:generate -n CreateDatabase

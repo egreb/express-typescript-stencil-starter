@@ -5,25 +5,33 @@
   "description": "Stencil App Starter",
   "license": "MIT",
   "scripts": {
-    "dev": "stencil build --dev --watch",
-    "build": "stencil build --docs",
+    "debug": "npx stencil build --dev --watch",
+    "build": "npx stencil build --ci --verbose",
     "generate": "stencil generate",
     "server:dev": "ts-node --project tsconfig.server.json server/app.ts",
     "server:build": "tsc --build tsconfig.server.json",
-    "typeorm": "typeorm-ts-node-commonjs"
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migration:create": "cd server && npm run typeorm migration:create -n Migration",
+    "postinstall": "npx patch-package"
   },
   "devDependencies": {
     "@stencil/core": "^2.15.2",
     "@stencil/router": "^1.0.1",
+    "@stencil/sass": "^1.5.2",
     "@types/express": "^4.17.9",
-    "ts-node": "10.7.0",
     "@types/node": "^16.11.10",
+    "patch-package": "^6.4.7",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "ts-node": "10.7.0",
+    "tsconfig-paths": "^4.0.0",
     "typescript": "4.5.2"
   },
   "dependencies": {
+    "@stencil/store": "^1.5.0",
     "express": "^4.17.1",
     "pg": "^8.4.0",
-    "typeorm": "0.3.6",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "0.3.6"
   }
 }

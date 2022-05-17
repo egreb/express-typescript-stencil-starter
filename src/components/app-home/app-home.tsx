@@ -27,7 +27,7 @@ export class AppHome {
         <stencil-route-link url="/profile/stencil">
           <button>Stencil profile</button>
         </stencil-route-link>
-        <stencil-route-link url="/users">
+        <stencil-route-link url="/list">
           <button>TypeORM Users</button>
         </stencil-route-link>
       </div>
