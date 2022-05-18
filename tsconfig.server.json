@@ -6,22 +6,14 @@
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
     "sourceMap": true,
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["dom", "es2017"],
     "moduleResolution": "node",
     "module": "commonjs",
-    "target": "es2017",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "target": "es2017"
   },
-  "include": [
-    "server",
-    "types/jsx.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["server", "types/jsx.d.ts"],
+  "exclude": ["node_modules"]
 }

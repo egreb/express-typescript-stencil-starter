@@ -1,68 +1,30 @@
 import * as express from 'express';
+import * as bodyParser from 'body-parser';
 import { Request, Response } from 'express';
-import { User } from '../src/entity/User';
 import { AppDataSource } from '../src/data-source';
+import { Routes } from '../src/routes';
+import { User } from '../src/entity/User';
 import * as path from 'path';
 
-// establish database connection
 AppDataSource.initialize()
-
-  .catch(err => {
-    console.error('Error during Data Source initialization:', err);
-  })
-  .then(() => {
-    const users = AppDataSource.getRepository(User);
-    const user = new User();
-    user.firstName = 'Florian';
-    user.lastName = 'Dugann';
-    user.age = 50;
-    users.save(user);
-
-    console.log('Data Source has been initialized!');
-
-    // create and setup express app
+  .then(async () => {
+    // create express app
     const app = express();
-    app.use(express.json());
+    app.use(bodyParser.json());
 
-    function registerAPI(klass, path) {
-      // register routes
-      const pathid = path + '/:id';
-      app.get(path, async function (_req: Request, res: Response) {
-        const users = await AppDataSource.getRepository(klass).find();
-        res.json(users);
+    // register express routes from defined application routes
+    Routes.forEach(route => {
+      (app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
+        const result = new (route.controller as any)()[route.action](req, res, next);
+        if (result instanceof Promise) {
+          result.then(result => (result !== null && result !== undefined ? res.send(result) : undefined));
+        } else if (result !== null && result !== undefined) {
+          res.json(result);
+        }
       });
+    });
 
-      app.get(pathid, async function (req: Request, res: Response) {
-        const id = {
-          id: parseInt(req.params.id),
-        };
-        const results = await AppDataSource.getRepository(klass).findOneBy(id);
-        return res.send(results);
-      });
-
-      app.post(path, async function (req: Request, res: Response) {
-        const user = await AppDataSource.getRepository(klass).create(req.body);
-        const results = await AppDataSource.getRepository(klass).save(user);
-        return res.send(results);
-      });
-
-      app.put(pathid, async function (req: Request, res: Response) {
-        const id = {
-          id: parseInt(req.params.id),
-        };
-        const user = await AppDataSource.getRepository(klass).findOneBy(id);
-        AppDataSource.getRepository(klass).merge(user, req.body);
-        const results = await AppDataSource.getRepository(klass).save(user);
-        return res.send(results);
-      });
-      app.delete(pathid, async function (req: Request, res: Response) {
-        const results = await AppDataSource.getRepository(klass).delete(req.params.id);
-        return res.send(results);
-      });
-    }
-
-    registerAPI(User, 'users');
-
+    // setup express app here
     app.use(express.static(path.join(__dirname, '../www')));
 
     app.get('/*', (_req, res) => {
@@ -70,7 +32,17 @@ AppDataSource.initialize()
     });
 
     // start express server
-    app.listen(3000, () => {
-      console.log('listening to http://localhost:3000');
-    });
-  });
+    app.listen(3000);
+
+    // insert new users for test
+    await AppDataSource.manager.save(
+      AppDataSource.manager.create(User, {
+        firstName: 'Florian',
+        lastName: 'Dugann',
+        age: 281067,
+      }),
+    );
+
+    console.log('Express server has started on http://localhost:3000');
+  })
+  .catch(error => console.log(error));
